@@ -61,12 +61,16 @@ class guiaAcords{
 
     public function getIndexExamples(){
         $result = [];
-        array_walk_recursive(self::$database, function($value, $k) use (&$result){
-            if($k === 'autoria'){
-                $result[] = $value;
+        foreach(self::$database as $tipo){
+            foreach($tipo as $serie){
+                foreach($serie['ejemplos'] as $ejemplo){
+                    if(!array_search([$ejemplo['artista'], $ejemplo['cancion']], $result, true)){
+                        array_push($result, [$ejemplo['artista'], $ejemplo['cancion']]);
+                    };
+                }
             }
-        });
-        return $result;
+        }
+        return array_sort($result, SORT_ASC);
     }
 
     public function getAllSeriesFromTipus(string $tipus): array|null{
