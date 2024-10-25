@@ -49,6 +49,26 @@ class guiaAcords{
         }
     }
 
+    // function getValuesByKey(array $arr, string $key): array {
+    //     $result = [];
+    //     array_walk_recursive($arr, function ($value, $k) use (&$result, $key) {
+    //         if ($k === $key) {
+    //             $result[] = $value;
+    //         }
+    //     });
+    //     return $result;
+    // }
+
+    public function getIndexExamples(){
+        $result = [];
+        array_walk_recursive(self::$database, function($value, $k) use (&$result){
+            if($k === 'autoria'){
+                $result[] = $value;
+            }
+        });
+        return $result;
+    }
+
     public function getAllSeriesFromTipus(string $tipus): array|null{
         if (!self::$database){
             return null;
@@ -111,7 +131,7 @@ class guiaAcords{
 
 try{
     $test = new guiaAcords();
-
+    var_dump($test->getIndexExamples());
 }catch(Exception $e){
     echo($e->getMessage());
 }
