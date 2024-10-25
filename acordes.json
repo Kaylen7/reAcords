@@ -1,0 +1,413 @@
+{
+    "cuatro_acordes": [
+      {
+        "serie": ["Am", "F", "C", "G"],
+        "descripcion": "Progresión típica del Reggaetón actual y el Pop de los 2010",
+        "ejemplos": [
+          {"artista": "luis fonsi", "cancion": "despacito"},
+          {"artista": "enrique iglesias", "cancion": "súbeme la radio"},
+          {"artista": "adele", "cancion": "hello"}
+        ]
+      },
+      {
+        "serie": ["F", "C", "G", "Am"],
+        "descripcion": "Menos común en Pop y Reggaetón",
+        "ejemplos": [
+          {"artista": "rihanna", "cancion": "umbrella"}
+        ]
+      },
+      {
+        "serie": ["C", "G", "Am", "F"],
+        "descripcion": "Progresión típica del Pop de los 2000",
+        "ejemplos": [
+          {"artista": "lady gaga", "cancion": "poker face"},
+          {"artista": "david bisbal", "cancion": "ave maría"}
+        ]
+      },
+      {
+        "serie": ["C", "G", "Am", "F-G"],
+        "descripcion": "Otra variación",
+        "ejemplos": [
+          {"artista": "taylor swift", "cancion": "love story"},
+          {"artista": "javy", "cancion": "qué sabrá neruda"}
+        ]
+      },
+      {
+        "serie": ["G", "Am", "F", "C"],
+        "descripcion": "Menos común",
+        "ejemplos": [
+          {"artista": "robbie williams", "cancion": "angels"}
+        ]
+      }
+    ],
+    "cuatro_acordes_otro_orden": [
+      {
+        "serie": ["C", "Am", "F", "G"],
+        "descripcion": "Progresión de los 50",
+        "ejemplos": [
+          {"artista": "whitney houston", "cancion": "i will always love you"},
+          {"artista": "ben e. king", "cancion": "stand by me"},
+          {"artista": "ed sheeran", "cancion": "perfect"}
+        ]
+      },
+      {
+        "serie": ["Am", "C", "G", "F"],
+        "descripcion": "Usada en la estrofa de Wrecking Ball de Miley Cyrus",
+        "ejemplos": [
+          {"artista": "miley cyrus", "cancion": "wrecking ball"}
+        ]
+      },
+      {
+        "serie": ["Am", "G", "F", "C"],
+        "descripcion": "",
+        "ejemplos": []
+      },
+      {
+        "serie": ["F", "Am", "C", "G"],
+        "descripcion": "",
+        "ejemplos": [{"artista": "karol g", "cancion": "tusa"}, {"artista": "rafa", "cancion": "piececitos"}]
+      },
+      {
+        "serie": ["F", "Am", "C", "C"],
+        "descripcion": "",
+        "ejemplos": []
+      },
+      {
+        "serie": ["F", "Am", "G", "G"],
+        "descripcion": "Usada en Sorry de Justin Bieber",
+        "ejemplos": [
+          {"artista": "justin bieber", "cancion": "sorry"}
+        ]
+      },
+      {
+        "serie": ["F", "C", "Am", "G"],
+        "descripcion": "",
+        "ejemplos": [
+          {"artista": "rafa", "cancion": "callejuela"}
+        ]
+      },
+      {
+        "serie": ["F", "G", "C", "Am"],
+        "descripcion": "Usada en Viva la Vida de Coldplay",
+        "ejemplos": [
+          {"artista": "coldplay", "cancion": "viva la vida"}
+        ]
+      }
+    ],
+    "seis_acordes": [
+      {
+        "serie": ["C", "Em", "G", "C"],
+        "descripcion": "Progresión melancólica con Em",
+        "ejemplos": [
+          {"artista": "mumford & sons", "cancion": "i will wait"}
+        ]
+      },
+      {
+        "serie": ["C", "Em", "Am", "G"],
+        "descripcion": "Progresión melancólica con Em",
+        "ejemplos": [
+          {"artista": "coldplay", "cancion": "fix you"}
+        ]
+      },
+      {
+        "serie": ["C", "Em", "F", "G"],
+        "descripcion": "Otra progresión con Em",
+        "ejemplos": []
+      },
+      {
+        "serie": ["C", "Em", "F", "C"],
+        "descripcion": "Otra progresión con Em",
+        "ejemplos": []
+      },
+      {
+        "serie": ["C", "Em", "Am", "F"],
+        "descripcion": "Otra progresión con Em",
+        "ejemplos": []
+      },
+      {
+        "serie": ["Am", "G", "Em", "F"],
+        "descripcion": "Usada en Everything Burns de Ben Moody ft. Anastacia",
+        "ejemplos": [
+          {"artista": "ben moody ft. anastacia", "cancion": "everything burns"}
+        ]
+      },
+      {
+        "serie": ["Am", "Em", "F", "C"],
+        "descripcion": "",
+        "ejemplos": []
+      },
+      {
+        "serie": ["C", "G", "Dm", "F"],
+        "descripcion": "Sumando el Dm para mayor tensión",
+        "ejemplos": [
+          {"artista": "katy perry", "cancion": "hot n cold"}
+        ]
+      },
+      {
+        "serie": ["Am", "C", "G", "Dm"],
+        "descripcion": "Usada en Demonios de Hugo",
+        "ejemplos": [
+          {"artista": "hugo", "cancion": "demonios"}
+        ]
+      },
+      {
+        "serie": ["Am", "Dm", "F", "G"],
+        "descripcion": "",
+        "ejemplos": [
+          {"artista": "ed sheeran", "cancion": "shape of you"}, 
+          {"artista": "aitana y ana guerra", "cancion": "lo malo"}
+        ]
+      },
+      {
+        "serie": ["Am", "F", "Dm", "G"],
+        "descripcion": "Progresión de los 50 en modo menor 🌘",
+        "ejemplos": []
+      },
+      {
+        "serie": ["Am", "F", "Dm", "Em"],
+        "descripcion": "Progresión de los 50 en modo menor 🌘",
+        "ejemplos": []
+      },
+      {
+        "serie": ["C", "Dm", "Em", "F"],
+        "descripcion": "Ascenso Happy 👏. Los acordes están en una escala ascendente, genera tensión",
+        "ejemplos": [
+          {"artista": "wham!", "cancion": "wake me up before you go go"}
+        ]
+      },
+      {
+        "serie": ["Dm", "Em", "F", "G"],
+        "descripcion": "Ascenso Happy 👏. Los acordes están en una escala ascendente, genera tensión",
+        "ejemplos": [
+          {"artista": "wham!", "cancion": "wake me up before you go go"}
+        ]
+      },
+      {
+        "serie": ["C", "E", "Am", "F"],
+        "descripcion": "Alternativa a los cuatro acordes cambiando G por E",
+        "ejemplos": []
+      }
+    ],
+    "alternando_entre_acordes": [
+      {
+        "serie": ["C", "Dm", "C", "Dm"],
+        "descripcion": "Progresión sin arrancar",
+        "ejemplos": [
+          {"artista": "wham!", "cancion": "wake me up before you go go"}
+        ]
+      },
+      {
+        "serie": ["C", "Em", "C", "Em"],
+        "descripcion": "Progresión triste",
+        "ejemplos": [
+          {"artista": "evanescence", "cancion": "my immortal"}
+        ]
+      },
+      {
+        "serie": ["C", "F", "C", "F"],
+        "descripcion": "Progresión usada en la estrofa de Imagine",
+        "ejemplos": [
+          {"artista": "john lennon", "cancion": "imagine"},
+          {"artista": "elton john", "cancion": "don’t go breaking my heart"}
+        ]
+      },
+      {
+        "serie": ["Cmaj7", "Fmaj7", "Cmaj7", "Fmaj7"],
+        "descripcion": "Versión más exótica",
+        "ejemplos": []
+      },
+      {
+        "serie": ["Am", "C", "Am", "C"],
+        "descripcion": "Progresión que se puede mantener mucho tiempo",
+        "ejemplos": [
+          {"artista": "leonard cohen", "cancion": "hallelujah"},
+          {"artista": "anne", "cancion": "volver a mí"}
+        ]
+      }
+    ],
+    "modo_menor_a_muerte": [
+      {
+        "serie": ["Am", "G", "F", "G"],
+        "descripcion": "Progresión menor",
+        "ejemplos": [
+          {"artista": "céline dion", "cancion": "my heart will go on"}
+        ]
+      },
+      {
+        "serie": ["F", "G", "Am", "Am"],
+        "descripcion": "Progresión menor",
+        "ejemplos": [
+          {"artista": "billie eilish", "cancion": "ocean eyes"},
+          {"artista": "oasis", "cancion": "wonderwall"}
+        ]
+      }
+    ],
+    "giros_de_color": [
+      {
+        "serie": ["C", "A", "Dm"],
+        "descripcion": "Modulación al segundo grado",
+        "ejemplos": [
+          {"artista": "frank sinatra", "cancion": "fly me to the moon"}
+        ]
+      },
+      {
+        "serie": ["C", "B", "Em"],
+        "descripcion": "Modulación al tercer grado",
+        "ejemplos": []
+      },
+      {
+        "serie": ["C", "E", "Am"],
+        "descripcion": "Caída al relativo menor, dark",
+        "ejemplos": [
+          {"artista": "the beatles", "cancion": "i want to hold your hand"}
+    ]},
+    {
+        "serie": ["F", "Fm", "C"],
+        "descripcion": "Vuelta triste al reposo",
+        "ejemplos": [
+          {"artista": "jesús", "cancion": "coloretes"}
+        ]
+      },
+      {
+        "serie": ["Ab", "Bb", "C"],
+        "descripcion": "Powerful Diva",
+        "ejemplos": [
+          {"artista": "whitney houston", "cancion": "himno americano"}
+        ]
+      },
+      {
+        "serie": ["C", "G/B", "Am"],
+        "descripcion": "Caída al relativo menor, powerful",
+        "ejemplos": [
+          {"artista": "pink floyd", "cancion": "us and them"}
+        ]
+      },
+      {
+        "serie": ["F", "F7", "C"],
+        "descripcion": "Vuelta triste con un acorde napolitano",
+        "ejemplos": [
+          {"artista": "tame impala", "cancion": "new person same old mistakes"}
+        ]
+      },
+      {
+        "serie": ["Db", "G", "C"],
+        "descripcion": "Dominante secundaria en mayor",
+        "ejemplos": [
+          {"artista": "maialen", "cancion": "la que el título es un secreto"}
+        ]
+      }
+    ],
+    "modos": [
+      {
+        "serie": ["Am", "D", "Am", "D"],
+        "descripcion": "Modo Dórico",
+        "ejemplos": [
+          {"artista": "bruno", "cancion": "let's make it happen"}
+        ]
+      },
+      {
+        "serie": ["Am", "Bb", "Am", "Bb"],
+        "descripcion": "Modo Frigio",
+        "ejemplos": [
+          {"artista": "maialen", "cancion": "oxitocina"}
+        ]
+      },
+      {
+        "serie": ["C(add#11)", "D", "C(add#11)", "D"],
+        "descripcion": "Modo Lidio",
+        "ejemplos": []
+      },
+      {
+        "serie": ["C", "Bb", "C", "Bb"],
+        "descripcion": "Modo Mixolidio",
+        "ejemplos": []
+      }
+    ],
+    "musica_muy_tonal": [
+      {
+        "serie": ["C", "F", "G", "C"],
+        "descripcion": "Funciones armónicas clásicas en Do mayor",
+        "ejemplos": [
+          {"artista": "ritchie valens", "cancion": "la bamba"}
+        ]
+      },
+      {
+        "serie": ["C", "G", "F", "C"],
+        "descripcion": "Progresión clásica en Do mayor",
+        "ejemplos": [
+          {"artista": "the beatles", "cancion": "let it be"},
+          {"artista": "snow patrol", "cancion": "chasing cars"}
+        ]
+      },
+      {
+        "serie": ["Am", "Dm", "E7", "Am"],
+        "descripcion": "Progresión en La menor",
+        "ejemplos": [
+          {"artista": "billie eilish", "cancion": "bad guy"}
+        ]
+      },
+      {
+        "serie": ["Dm", "Am", "E", "Am"],
+        "descripcion": "Progresión oscura en La menor",
+        "ejemplos": []
+      }
+    ],
+    "series_especificas": [
+      {
+        "serie": ["Am", "Dm", "G", "C", "F", "B(b5)", "E", "Am"],
+        "descripcion": "Serie de quintas en modo menor",
+        "ejemplos": [
+          {"artista": "gloria gaynor", "cancion": "i will survive"}
+        ]
+      },
+      {
+        "serie": ["F", "B(b5)", "Em", "Am", "Dm", "G", "C"],
+        "descripcion": "Serie de quintas en modo mayor",
+        "ejemplos": []
+      },
+      {
+        "serie": ["Am", "Am/G#", "Am/G", "Am/F#-Am/F"],
+        "descripcion": "Línea de bajo descendente en menor",
+        "ejemplos": [
+          {"artista": "billy joel", "cancion": "piano man"}
+        ]
+      },
+      {
+        "serie": ["C", "C/B", "C7/Bb", "F/A", "Fm/Ab", "C/G"],
+        "descripcion": "Línea de bajo descendente en mayor",
+        "ejemplos": []
+      },
+      {
+        "serie": ["C", "G/B", "Am", "C/G", "F", "D/F#", "G", "G"],
+        "descripcion": "Línea de bajo descendente diatónica",
+        "ejemplos": [
+          {"artista": "los miserables", "cancion": "i dreamed a dream"},
+          {"artista": "canon de pachelbel", "cancion": "canon"}
+        ]
+      },
+      {
+        "serie": ["C", "C", "C", "C", "F", "F", "C", "C", "G", "F", "C", "C"],
+        "descripcion": "Blues de 12 compases",
+        "ejemplos": [
+          {"artista": "elvis presley", "cancion": "blue suede shoes"}
+        ]
+      }
+    ],
+    "otras_ideas_armonicas": [
+      {
+        "serie": ["C", "F", "G", "C"],
+        "descripcion": "Subir uno o dos semitonos para dar energía al estribillo",
+        "ejemplos": [
+          {"artista": "céline dion", "cancion": "my heart will go on"}
+        ]
+      },
+      {
+        "serie": ["Am", "A"],
+        "descripcion": "Hacer la estrofa en modo menor y el estribillo en mayor",
+        "ejemplos": [
+          {"artista": "la oreja de van gogh", "cancion": "la paz de tus ojos"}
+        ]
+      }
+    ]
+  }
+  
