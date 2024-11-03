@@ -1,13 +1,31 @@
-<?php 
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
 
-$request = $_SERVER['REQUEST_URI'];
+use Src\Services\MenuFactory;
+use Src\Controllers\MainController;
 
-switch($request){
-    case '/':
-        require __DIR__ . '/views/mainView.php';
+$modes = ["acords random", "acords de la col·lecció", "acords específics", "canviar configuracio"];
+$menu = new MenuFactory($modes);
+$mode = $menu->init();
+$controller = new MainController();
+
+switch(array_search($mode, $modes)){
+    case 0:
+        if($mode === ''){
+            break;
+        }
+        $controller->getAcordsRandom();
         break;
-    default:
-        http_response_code(404);
-        require __DIR__ . '/views/404.php';
+    case 1:
+        $controller->getAcordsColeccio();
+        break;
+    case 2:
+        $input = readline("Sèrie d'acords separats per comes:\n");
+        $controller->getAcordsEspecifics($input);
+        break;
+    case 3:
+        $controller->getConfig();
         break;
 }
+
+?>

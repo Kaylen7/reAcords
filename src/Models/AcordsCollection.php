@@ -20,7 +20,7 @@ class AcordsCollection{
         }
     }
 
-    private function getIndexExamples(){
+    public function getIndexExamples(){
         $result = [];
         foreach(self::$database as $tipo){
             foreach($tipo as $serie){
@@ -33,6 +33,10 @@ class AcordsCollection{
         }
         array_multisort($result);
         return $result;
+    }
+
+    public function getCollection(){
+        return self::$database;
     }
 
     protected function getAllSeriesFromTipus(string $tipus): array|null{
