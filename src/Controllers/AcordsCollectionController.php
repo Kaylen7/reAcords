@@ -3,30 +3,42 @@
 namespace Src\Controllers;
 
 use Src\Services\MenuFactory;
-use Src\Views\Pager;
+use Src\Services\PagerFactory;
 use Src\Models\AcordsCollection;
 
 class AcordsCollectionController{
 
+    private const OPCIONS = ["assajar secció", "buscar per artista-cançó"]; 
+
     public function init(){
-        $opcions = ["assajar secció", "buscar per artista-cançó"];
-        $menu = new MenuFactory($opcions);
+        $menu = new MenuFactory(self::OPCIONS);
         $opcio = $menu->init();
-        
-        switch(array_search($opcio, $opcions)){
+        switch(array_search($opcio, self::OPCIONS)){
             case 0:
-                $this->getPager();
+                if($opcio === ""){
+                    break;
+                }
+                $this->getPagerPerSeccions();
                 break;
             case 1:
-                echo "1";
+                $this->getPagerPerArtista();
                 break;
         }
     }
 
-    private function getPager(){
+    private function getPagerPerSeccions(): void{
         $collection = new AcordsCollection();
         $cataleg = $collection->getCollection();
-        $pager = new Pager($cataleg);
-        $pager->navegar();
+
+        $pager = new PagerFactory($cataleg, 1, true);
+        $pager->init();
+    }
+
+    private function getPagerPerArtista():void {
+        $collection = new AcordsCollection();
+        $cataleg = $collection->getIndexExamples();
+
+        $pager = new PagerFactory($cataleg, 5, true);
+        $pager->init();
     }
 }

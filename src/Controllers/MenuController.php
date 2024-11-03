@@ -4,6 +4,7 @@ namespace Src\Controllers;
 
 use Src\Views\MenuDisplay;
 use Src\Models\Menu;
+use Src\Enums\ErrorMessages;
 
 class MenuController {
 
@@ -39,16 +40,16 @@ class MenuController {
                 }
             } elseif($key === 10){
                 if(count($params["chosen"]) > 1){
-                    $this->display->showMessage(PHP_EOL ."❌ Només pots triar una opció!" . PHP_EOL);
+                    $this->display->showError(ErrorMessages::ERR_EN_TRIA_MOLTES);
                     break;
                 } elseif(count($params["chosen"]) === 0){
-                    $this->display->showMessage(PHP_EOL . "❌ Tria com a mínim una opció!" . PHP_EOL);
+                    $this->display->showError(ErrorMessages::ERR_NO_TRIA_CAP);
                     break;
                 }else{
                     return $params["options"][$params["chosen"][0]];
                 }
             } elseif ($key === 113) { // 'q' to quit
-                $this->display->exit();
+                $this->display->leave();
                 break;
             }
         }

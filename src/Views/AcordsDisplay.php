@@ -5,8 +5,7 @@ namespace Src\Views;
 class AcordsDisplay extends ConsoleOutput {
 
     public function clearScreen(): void{
-        echo self::CLEAR_TERMINAL;
-        system($this->clearConsole);
+        $this->clearConsole();
     }
     
     public function displayBeat(): void{
