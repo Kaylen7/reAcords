@@ -14,7 +14,6 @@ class MenuController {
 
     public function run(): string{
         system("stty -icanon -echo");
-        $params = $this->model->getParams();
 
         while (true) {
             $params = $this->model->getParams();
