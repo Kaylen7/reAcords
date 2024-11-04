@@ -24,6 +24,8 @@ index.php
 - [ ] Vistes Pager
 - [ ] Address glitch in menu rendering 
 - [ ] Botó repetir final loop acords
+- [ ] Change Catalog to Singleton model (?)
+- [ ] Add preview chords before jumping into action
 - [ ] Opció random a acords específics
 - [ ] Compatibilitat multiplataforma
 - [ ] Reanomenar classes

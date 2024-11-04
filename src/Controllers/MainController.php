@@ -2,8 +2,8 @@
 
 namespace Src\Controllers;
 
-use Src\Controllers\CatalogueController;
 use Src\Services\AcordsFactory;
+use Src\Services\CatalogueService; 
 
 class MainController{
 
@@ -21,7 +21,7 @@ class MainController{
     }
 
     public function getAcordsColeccio(){
-        $controller = new CatalogueController();
+        $controller = new CatalogueService();
         $controller->init();
     }
 }
