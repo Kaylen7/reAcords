@@ -10,6 +10,7 @@ class ConsoleOutput{
     protected const YELLOW = "\033[33m";
     protected const BLUE = "\033[34m";
     protected const RESET = "\033[0m";
+    protected const BOLD = "\033[1m";
 
     protected const EXIT = PHP_EOL . PHP_EOL . "👋 Sortint..." . PHP_EOL;
 
