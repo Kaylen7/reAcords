@@ -4,7 +4,7 @@ namespace Src\Models;
 use Src\Enums\Compas;
 use Src\Enums\Tempo;
 
-class AcordsGenerator {
+class Acords {
     
     public function __construct(
         protected array $acords,

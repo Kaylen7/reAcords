@@ -6,27 +6,35 @@ use Src\Models\Configuration;
 use Src\Views\Pager;
 use Src\Models\AcordsCollection;
 use Src\Controllers\AcordsCollectionController;
-use Src\Controllers\AcordsController;
-use Src\Models\AcordsGenerator;
-use Src\Views\AcordsDisplay;
+use Src\Services\AcordsFactory;
 
 class MainController extends Configuration{
 
     public function getAcordsRandom(){
         $acords = ["A", "B", "C", "D", "E", "F", "G"];
-        $generator = new AcordsGenerator($acords, self::$configuration['minuts-estudi'], self::$compas, self::$tempo, true);
-        $display = new AcordsDisplay();
-        $controller = new AcordsController($generator, $display);
-
-        $controller->run();
+        $controller = new AcordsFactory(
+            [
+                "acords" => $acords, 
+                "minutsAssaig" => self::$configuration['minuts-estudi'],
+                "compas" => self::$compas,
+                "tempo" => self::$tempo,
+                "random" => true
+            ]);
+        $controller->init();
     }
 
     public function getAcordsEspecifics(string $acords, bool $random = false){
         $arrAcords = explode(",", str_replace(' ', '', $acords));
-        $generator = new AcordsGenerator($arrAcords, self::$configuration['minuts-estudi'], self::$compas, self::$tempo, $random);
-        $display = new AcordsDisplay();
-        $controller = new AcordsController($generator, $display);
-        $controller->run();
+
+        $controller = new AcordsFactory(
+            [
+                "acords" => $arrAcords, 
+                "minutsAssaig" => self::$configuration['minuts-estudi'],
+                "compas" => self::$compas,
+                "tempo" => self::$tempo,
+                "random" => $random
+            ]);
+        $controller->init();
     }
 
     public function getAcordsColeccio(){

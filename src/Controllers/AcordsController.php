@@ -2,19 +2,19 @@
 
 namespace Src\Controllers;
 
-use Src\Models\AcordsGenerator;
+use Src\Models\Acords;
 use Src\Views\AcordsDisplay;
 
 class AcordsController{
 
     public function __construct(
-        private AcordsGenerator $generator,
+        private Acords $model,
         private AcordsDisplay $display
     ){}
 
     public function run(): void{
 
-        $params = $this->generator->calculateRepetitions();
+        $params = $this->model->calculateRepetitions();
         $acordsIndex = 0;
         $repeticions = $params["repeticions"];
 
@@ -22,7 +22,7 @@ class AcordsController{
             if($acordsIndex === $params["totalAcords"]){
                 $acordsIndex = 0;
             }
-            $acord = $this->generator->getAcordForPosition($acordsIndex);
+            $acord = $this->model->getAcordForPosition($acordsIndex);
             
             $this->display->displayAcord($acord);
             
