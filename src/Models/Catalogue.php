@@ -2,7 +2,7 @@
 
 namespace Src\Models;
 
-class AcordsCollection{
+class Catalogue {
     protected static array $database = [];
     protected static array $indexCancons = [];
 
@@ -39,62 +39,26 @@ class AcordsCollection{
         return self::$database;
     }
 
-    protected function getAllSeriesFromTipus(string $tipus): array|null{
-        if (!self::$database){
-            return null;
-        }
-        foreach(self::$database as $tipo=>$contenido){
-            if($tipo === $tipus){
-                $allSeries = [];
-                foreach($contenido as $serie){
-                    array_push($allSeries, $serie);
-                }
-                return $allSeries;
-            }
-        }
-    }
-
-    protected function getOneSerieFromTipusByIndex(string $tipus, int $inputIndex = 1): array|null{
+    public function getAcordsByArtistSong(string $artist, string $song): array|null {
         if(!self::$database){
             return null;
         }
-        $index = $inputIndex - 1;
-        foreach(self::$database as $tipo=>$contenido){
-            if($tipo === $tipus){
-                if ((count($contenido) <= $index) || ($index < 0)){
-                    throw new Exception("Valors no admesos a l'index.");
-                    return null;
-                }
-                else {
-                    return $contenido[$index]['serie'];
-                }
-            }
-        }
-    }
-
-    protected function getSeriesByAuthor(string $author): array|null {
-        if(!self::$database){
-            return null;
-        }
-        var_dump(self::$indexCancons);
-        $allSeries = [];
+        $acords = [];
         foreach(self::$database as $tipo=>$contenido){   
-            $series = []; 
             foreach($contenido as $serie){
                 foreach($serie['ejemplos'] as $ejemplo){
                     if(array_key_exists('artista', $ejemplo)){
-                        if($ejemplo['artista'] === strtolower($author)){
-                            array_push($series, $serie);                            
-                            $allSeries[$tipo] = $series;
+                        if($ejemplo['artista'] === $artist && $ejemplo['cancion'] === $song){                            
+                            $acords = $serie["serie"];
                         }
                     }
                 }
             }
         }
-        if(count($allSeries) < 1){
+        if(count($acords) < 1){
             throw new Exception("La cerca no ha donat resultats.");
             return null;
         }
-        return $allSeries;
+        return $acords;
     }
 }

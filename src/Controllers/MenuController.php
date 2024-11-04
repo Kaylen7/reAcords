@@ -38,7 +38,7 @@ class MenuController {
                     $chosen[] = ($params["selected"]);
                     $this->model->setChosen($chosen);
                 }
-            } elseif($key === 10){
+            } elseif($key === 10){ // Enter
                 if(count($params["chosen"]) > 1){
                     $this->display->showError(ErrorMessages::ERR_EN_TRIA_MOLTES);
                     break;

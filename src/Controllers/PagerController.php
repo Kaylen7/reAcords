@@ -7,12 +7,15 @@ use Src\Views\PagerDisplay;
 
 class PagerController{
     private int $limits;
+    private array|null $chosen = null;
+    private int|null $option = null;
+
     public function __construct(
         private Pager $model,
         private PagerDisplay $display
     ){}
 
-    public function run(): void{
+    public function run(): array|null{
         system("stty -icanon -echo");
         $this->model->setPage();
 
@@ -57,7 +60,17 @@ class PagerController{
                 $this->model->previousSerie();
                 $this->display->clearDisplay();
             }
+        } elseif(ord($key) >= 49 && ord($key) < 54){
+            $this->option = $key + ($pagActual * $itemsPerPag);
+        } elseif(ord($key) === 10){
+            if($isCollection){
+                $this->chosen = [$page, $pagActual];
+            } else {
+                $this->chosen = [$page, $this->option];
+            }
+            break;
         }
         }
+        return $this->chosen;
     }
 }

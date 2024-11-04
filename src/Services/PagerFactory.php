@@ -19,7 +19,7 @@ class PagerFactory{
         $this->controller = new PagerController($model, $display);
     }
 
-    public function init(): void{
-        $this->controller->run();
+    public function init(): array|null{
+        return $this->controller->run();
     }
 }
