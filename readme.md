@@ -6,6 +6,7 @@ Practica acords desde la consola.
 ## TO-DO
 - [ ] Gestió _config_ file
 - [ ] Vistes Pager
+- [ ] Address glitch in menu rendering 
 - [ ] Botó repetir final loop acords
 - [ ] Opció random a acords específics
 - [ ] Compatibilitat multiplataforma
