@@ -24,7 +24,7 @@ switch(array_search($mode, $modes)){
         $controller->getAcordsEspecifics($input);
         break;
     case 3:
-        $controller->getConfig();
+        echo "working on it";
         break;
 }
 

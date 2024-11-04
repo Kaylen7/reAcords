@@ -11,11 +11,11 @@ class AcordsFactory {
     private AcordsController $controller;
 
     public function __construct(
-        private array $config
+        private array $acords,
+        private bool $random = false
     ){
-        $c = $this->config;
         $display = new AcordsDisplay();
-        $model = new Acords($c["acords"], $c["random"]);
+        $model = new Acords($this->acords, $this->random);
         $this->controller = new AcordsController($model, $display);
     }
 
