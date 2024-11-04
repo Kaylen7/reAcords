@@ -5,19 +5,20 @@ use Src\Enums\Compas;
 use Src\Enums\Tempo;
 
 class Acords {
-    
+    private array $config;
+
     public function __construct(
         protected array $acords,
-        protected int $minutsAssaig,
-        protected Compas $compas,
-        protected Tempo $tempo,
         protected bool $random = false
-    ){}
+    ){
+        $config = Configuration::getInstance();
+        $this->config = $config->getConfig();
+    }
 
     public function calculateRepetitions(): array{
-        $total = $this->minutsAssaig * 60;
-        $compas = explode('/', $this->compas->value);
-        $beat = $this->tempo->value;
+        $total = $this->config["configuration"]['minuts-estudi'] * 60;
+        $compas = explode('/', $this->config["compas"]->value);
+        $beat = $this->config["tempo"]->value;
         $repeticions = $total / ($compas[1] * $beat);
         $totalAcords = count($this->acords);
 

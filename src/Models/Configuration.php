@@ -6,27 +6,30 @@ use Src\Enums\Compas;
 use Src\Enums\Tempo;
 
 class Configuration{
-    protected static array $configuration;
-    protected static Compas $compas;
-    protected static Tempo $tempo;
+    private static ?Configuration $instance = null;
+    private array $configuration;
+    private Compas $compas;
+    private Tempo $tempo;
 
     public function __construct(){
-        try {
-            $file = @file_get_contents('./config.json');
-            if (!$file){
-                throw new Exception("No s'ha trobat l'arxiu de configuració.");
-            }
-            self::$configuration = json_decode($file, true);
-            self::$compas = $this->getCompas();
-            self::$tempo = $this->getTempo();
-        }catch(Exception $err){
-            var_dump($err->getMessage());
-            return;
+        $file = @file_get_contents('./config.json');
+        if (!$file){
+            throw new Exception("No s'ha trobat l'arxiu de configuració.");
         }
+        $this->configuration = json_decode($file, true);
+        $this->compas = $this->getCompas();
+        $this->tempo = $this->getTempo();
     }
 
-    protected function getCompas(): Compas{
-        return match(self::$configuration['compas']){
+    public static function getInstance(): Configuration {
+        if(self::$instance === null){
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    private function getCompas(): Compas{
+        return match($this->configuration['compas']){
             'DOSQUATRE' => Compas::DOSQUATRE,
             'TRESQUATRE' => Compas::TRESQUATRE,
             'QUATREQUATRE' => Compas::QUATREQUATRE,
@@ -37,13 +40,26 @@ class Configuration{
         };
     }
 
-    protected function getTempo(): Tempo{
-       return match(self::$configuration['tempo']){
+    private function getTempo(): Tempo{
+       return match($this->configuration['tempo']){
         'LARGO' => Tempo::LARGO,
         'ADAGIO' => Tempo::ADAGIO,
         'ANDANTE' => Tempo::ANDANTE,
         'ALLEGRO' => Tempo::ALLEGRO,
         'PRESTO' => Tempo::PRESTO
         };
+    }
+
+    public function getConfig(){
+        return [
+            "configuration" => $this->configuration,
+            "compas" => $this->compas,
+            "tempo" => $this->tempo
+        ];
+    }
+
+    private function __clone(){}
+    public function __wakeup(){
+        throw new Exception("No es pot deserialitzar un Singleton.");
     }
 }

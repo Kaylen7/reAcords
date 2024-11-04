@@ -2,20 +2,16 @@
 
 namespace Src\Controllers;
 
-use Src\Models\Configuration;
-use Src\Controllers\AcordsCollectionController;
+use Src\Controllers\CatalogController;
 use Src\Services\AcordsFactory;
 
-class MainController extends Configuration{
+class MainController{
 
     public function getAcordsRandom(){
         $acords = ["A", "B", "C", "D", "E", "F", "G"];
         $controller = new AcordsFactory(
             [
-                "acords" => $acords, 
-                "minutsAssaig" => self::$configuration['minuts-estudi'],
-                "compas" => self::$compas,
-                "tempo" => self::$tempo,
+                "acords" => $acords,
                 "random" => true
             ]);
         $controller->init();
@@ -26,25 +22,14 @@ class MainController extends Configuration{
 
         $controller = new AcordsFactory(
             [
-                "acords" => $arrAcords, 
-                "minutsAssaig" => self::$configuration['minuts-estudi'],
-                "compas" => self::$compas,
-                "tempo" => self::$tempo,
+                "acords" => $arrAcords,
                 "random" => $random
             ]);
         $controller->init();
     }
 
     public function getAcordsColeccio(){
-        $controller = new AcordsCollectionController();
+        $controller = new CatalogController();
         $controller->init();
-    }
-
-    public function getConfig(){
-        var_dump(self::$configuration);
-    }
-
-    public function setConfig(){
-        echo "Working on it!";
     }
 }

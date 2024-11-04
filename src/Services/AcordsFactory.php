@@ -15,7 +15,7 @@ class AcordsFactory {
     ){
         $c = $this->config;
         $display = new AcordsDisplay();
-        $model = new Acords($c["acords"], $c["minutsAssaig"], $c["compas"], $c["tempo"], $c["random"]);
+        $model = new Acords($c["acords"], $c["random"]);
         $this->controller = new AcordsController($model, $display);
     }
 
