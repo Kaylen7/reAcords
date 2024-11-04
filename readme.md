@@ -3,6 +3,22 @@ Practica acords desde la consola.
 
 ## Instal·lació
 
+## Flujo de la app
+````
+index.php
+|--- MainController
+|   |--- getAcordsRandom
+|   |   |--- AcordsGenerator
+|   |---getAcordsEspecifics
+|   |   |--- AcordsGenerator
+|   |---getAcordsColeccio
+|   |   |--- CatalogService
+|   |   |   |--- CatalogNavigator
+|   |   |   |--- AcordsCollection
+|   |   |--- AcordsGenerator
+
+````
+
 ## TO-DO
 - [ ] Gestió _config_ file
 - [ ] Vistes Pager
