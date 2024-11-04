@@ -3,8 +3,6 @@
 namespace Src\Controllers;
 
 use Src\Models\Configuration;
-use Src\Views\Pager;
-use Src\Models\AcordsCollection;
 use Src\Controllers\AcordsCollectionController;
 use Src\Services\AcordsFactory;
 
