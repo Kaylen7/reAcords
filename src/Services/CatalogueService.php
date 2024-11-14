@@ -5,6 +5,7 @@ namespace Src\Services;
 use Src\Services\MenuFactory;
 use Src\Controllers\CatalogueController;
 use Src\Models\Catalogue;
+use Src\Views\CatalogueDisplay;
 
 class CatalogueService {
 
@@ -14,7 +15,8 @@ class CatalogueService {
     public function __construct(
     ){
         $model = new Catalogue();
-        $this->controller = new CatalogueController($model);
+        $display = new CatalogueDisplay();
+        $this->controller = new CatalogueController($model, $display);
     }
 
     public function init(){

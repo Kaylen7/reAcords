@@ -5,11 +5,13 @@ namespace Src\Controllers;
 use Src\Services\PagerFactory;
 use Src\Services\AcordsFactory;
 use Src\Models\Catalogue;
+use Src\Views\CatalogueDisplay;
 
 class CatalogueController{
 
     public function __construct(
-        private Catalogue $model
+        private Catalogue $model,
+        private CatalogueDisplay $display
     ){}
 
     public function getPagerPerSeccions(): void{
@@ -20,6 +22,7 @@ class CatalogueController{
 
         if($result){
             [$pag, $index] = $result;
+            $this->display->showChosenMessage($pag[$index]["serie"], "", "", 2);
             $acordsGenerator = new AcordsFactory($pag[$index]["serie"]);
             $acordsGenerator->init();
         }
@@ -31,17 +34,21 @@ class CatalogueController{
         $pager = new PagerFactory($cataleg, 5, false);
         $result = $pager->init();
 
-        if(!in_array(NULL, $result)){
+        if($result === NULL){
+            //do nothing
+
+        } elseif(!in_array(NULL, $result)){
             [$pag, $key] = $result;
             [$artist, $song] = $pag[$key - 1];
 
             $acords = $this->model->getAcordsByArtistSong($artist, $song);
-            echo "\nHas triat " . implode(", ", $acords) . " de la cançó " . $song . " de " . $artist;
-            sleep(3);
+            $this->display->showChosenMessage($acords, $song, $artist, 4);
             $acordsGenerator = new AcordsFactory($acords);
             $acordsGenerator->init();
         } else {
             echo "\nEp! falten paràmetres.\n";
+            sleep(1);
+            self::getPagerPerArtista();
         }
     }
 }
