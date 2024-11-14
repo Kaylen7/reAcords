@@ -48,6 +48,8 @@ class MenuController {
                 }else{
                     return $params["options"][$params["chosen"][0]];
                 }
+            } elseif($key === 119) { // 'w' go back
+                return "w";
             } elseif ($key === 113) { // 'q' to quit
                 $this->display->leave();
                 break;

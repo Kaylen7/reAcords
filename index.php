@@ -17,6 +17,9 @@ switch(array_search($mode, $modes)){
     case 0:
         if($mode === ''){
             break;
+        }elseif($mode === 'w'){
+            system("php index.php");
+            break;
         }
         $controller->getAcordsRandom();
         break;
