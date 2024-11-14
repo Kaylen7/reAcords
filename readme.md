@@ -20,12 +20,13 @@ index.php
 ````
 
 ## TO-DO
+- [ ] Corregir acoplamiento de dependencias en Services.
 - [ ] Gestió _config_ file
 - [x] Vistes Pager
 - [ ] Address glitch in menu rendering 
 - [ ] Botó repetir final loop acords
 - [ ] Change Catalog to Singleton model (?)
-- [ ] Pasarela -> preview chords before jumping into action
+- [x] Pasarela -> preview chords before jumping into action
 - [ ] Opció random a acords específics
 - [ ] Canviar acords Random per sèrie del catàleg random
 - [ ] Compatibilitat multiplataforma
