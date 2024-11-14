@@ -15,7 +15,7 @@ class MenuController {
 
     public function run(): string{
         system("stty -icanon -echo");
-
+        $this->display->showTitle();
         while (true) {
             $params = $this->model->getParams();
             $this->display->display($params["options"], $params["chosen"], $params["selected"]);

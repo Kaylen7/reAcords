@@ -11,9 +11,10 @@ class MenuFactory {
     private MenuController $controller;
 
     public function __construct(
-        private array $options
+        private array $options,
+        private string $title = ""
     ){
-        $display = new MenuDisplay();
+        $display = new MenuDisplay($this->title);
         $model = new Menu($this->options);
         $this->controller = new MenuController($display, $model);
     }

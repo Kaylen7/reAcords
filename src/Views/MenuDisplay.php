@@ -8,6 +8,10 @@ class MenuDisplay extends ConsoleOutput{
     private const MISSATGE = "\nTria una opció\n\n";
     private const INSTRUCCIONS = "\nMou-te amb les fletxes, selecciona amb espai, acepta amb enter i fes servir 'q' per sortir.\n";
 
+    public function __construct(
+        private string $title
+    ){}
+
     public function display(array $options, array $chosen, int $selected): void{
         $this->clearConsole();
         self::showMessage(self::MISSATGE, self::BLUE);
@@ -19,6 +23,15 @@ class MenuDisplay extends ConsoleOutput{
             echo "$highlight [$checked] $option\n";
         }
         self::showMessage(self::INSTRUCCIONS, self::BLUE);
+    }
+
+    public function showTitle(){
+        if ($this->title != ""){
+            $this->clearConsole();
+            self::showMessage($this->title . PHP_EOL . PHP_EOL, self::BOLD);
+            self::showMessage("La pàgina es carregarà en breus...");
+            sleep(2);
+        }
     }
 
     public function showError(ErrorMessages $err): void{
