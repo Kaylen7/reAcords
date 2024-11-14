@@ -30,29 +30,33 @@ class Configuration{
         return $this->configuration;
     }
 
-    public function setMinuts(int $minuts){
+    public function setMinuts(int $minuts): void{
         $this->configuration["minuts-estudi"] = $minuts;
         $this->update();
     }
 
-    public function setCompas(string $compas){
+    public function setCompas(string $compas): bool{
         try {
             $validCompas = Compas::fromValue($compas);
             $this->configuration["compas"] = $compas;
             $this->update();
+            return true;
         } catch (\InvalidArgumentException $e) {
             echo "Error: " . $e->getMessage();
+            return false;
         }
         
     }
 
-    public function setTempo(string $tempo){
+    public function setTempo(string $tempo): bool{
         try{
             $validTempo = Tempo::getTempo($tempo);
             $this->configuration["tempo"] = $tempo;
             $this->update();
+            return true;
         } catch(\InvalidArgumentException $e){
             echo "Error: " . $e->getMessage();
+            return false;
         }
     }
 

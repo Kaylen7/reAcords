@@ -30,22 +30,28 @@ class ConfigurationController {
         $options = Compas::showCases();
         $menu = new MenuFactory($options);
         $compas = $menu->init();
-        $this->model->setCompas($compas);
-        $this->display->message("Compàs canviat a $compas" . PHP_EOL);
+        $ok = $this->model->setCompas($compas);
+        if ($ok){
+            $this->display->message("Compàs canviat a $compas" . PHP_EOL);
+        }
     }
 
     public function changeTempo(): void{
         $options = Tempo::showCases();
         $menu = new MenuFactory($options);
         $tempo = $menu->init();
-        $this->model->setTempo($tempo);
-        $this->display->message("Tempo canviat a $tempo" . PHP_EOL);
+        $ok = $this->model->setTempo($tempo);
+        if ($ok){
+            $this->display->message("Tempo canviat a $tempo" . PHP_EOL);
+        }  
     }
 
-    public function changeMinuts(){
-        $minuts = readline("Quant de temps vols estudiar? (En minuts)");
-        $this->model->setMinuts($minuts);
-        $this->display->message("Temps d'estudi canviat a $minuts" . PHP_EOL);
+    public function changeMinuts(string $minuts): void{
+        if(preg_match('/[0-9]+/', $minuts)){
+            $this->model->setMinuts((int)$minuts);
+            $this->display->message("Temps d'estudi canviat a $minuts" . PHP_EOL);
+        } else {
+            echo "Si us plau, introdueix un nombre enter.";
+        }
     }
-
 }

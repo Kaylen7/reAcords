@@ -24,4 +24,8 @@ class ConfigurationDisplay extends ConsoleOutput {
     public function message(string $message){
         $this->showMessage($message);
     }
+
+    public function clearScreen(){
+        $this->clearConsole();
+    }
 }
