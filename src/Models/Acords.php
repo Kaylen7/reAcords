@@ -16,9 +16,9 @@ class Acords {
     }
 
     public function calculateRepetitions(): array{
-        $total = $this->config["configuration"]['minuts-estudi'] * 60;
-        $compas = explode('/', $this->config["compas"]->value);
-        $beat = $this->config["tempo"]->value;
+        $total = $this->config['minuts-estudi'] * 60;
+        $compas = explode('/', $this->config["compas"]);
+        $beat = Tempo::getTempo($this->config["tempo"])->value;
         $repeticions = $total / ($compas[1] * $beat);
         $totalAcords = count($this->acords);
 

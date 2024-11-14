@@ -17,8 +17,6 @@ class Configuration{
             throw new Exception("No s'ha trobat l'arxiu de configuració.");
         }
         $this->configuration = json_decode($file, true);
-        $this->compas = $this->getCompas();
-        $this->tempo = $this->getTempo();
     }
 
     public static function getInstance(): Configuration {
@@ -28,34 +26,51 @@ class Configuration{
         return self::$instance;
     }
 
-    private function getCompas(): Compas{
-        return match($this->configuration['compas']){
-            'DOSQUATRE' => Compas::DOSQUATRE,
-            'TRESQUATRE' => Compas::TRESQUATRE,
-            'QUATREQUATRE' => Compas::QUATREQUATRE,
-            'SISVUIT' => Compas::SISVUIT,
-            'DOTZEVUIT' => Compas::DOTZEVUIT,
-            'CINCSET' => Compas::CINCSET,
-            'SETVUIT' => Compas::SETVUIT
-        };
-    }
-
-    private function getTempo(): Tempo{
-       return match($this->configuration['tempo']){
-        'LARGO' => Tempo::LARGO,
-        'ADAGIO' => Tempo::ADAGIO,
-        'ANDANTE' => Tempo::ANDANTE,
-        'ALLEGRO' => Tempo::ALLEGRO,
-        'PRESTO' => Tempo::PRESTO
-        };
-    }
-
     public function getConfig(){
-        return [
-            "configuration" => $this->configuration,
-            "compas" => $this->compas,
-            "tempo" => $this->tempo
-        ];
+        return $this->configuration;
+    }
+
+    public function setMinuts(int $minuts){
+        $this->configuration["minuts-estudi"] = $minuts;
+        $this->update();
+    }
+
+    public function setCompas(string $compas){
+        try {
+            $validCompas = Compas::fromValue($compas);
+            $this->configuration["compas"] = $compas;
+            $this->update();
+        } catch (\InvalidArgumentException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        
+    }
+
+    public function setTempo(string $tempo){
+        try{
+            $validTempo = Tempo::getTempo($tempo);
+            $this->configuration["tempo"] = $tempo;
+            $this->update();
+        } catch(\InvalidArgumentException $e){
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    public function setRandom(bool $random){
+        $this->configuration["random"] = $random;
+        $this->update();
+    }
+
+    public function setAcords(array $acords){
+        $this->configuration["acords"] = $acords;
+        $this->update();
+    }
+
+    private function update(){
+        $file = @file_put_contents('./config.json', json_encode($this->configuration, JSON_PRETTY_PRINT));
+        if(!$file){
+            echo "Failed to write file." . PHP_EOL;
+        }
     }
 
     private function __clone(){}
