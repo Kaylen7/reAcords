@@ -30,7 +30,7 @@ class MenuDisplay extends ConsoleOutput{
             $this->clearConsole();
             self::showMessage($this->title . PHP_EOL . PHP_EOL, self::BOLD);
             self::showMessage("La pàgina es carregarà en breus...");
-            sleep(2);
+            sleep(3);
         }
     }
 

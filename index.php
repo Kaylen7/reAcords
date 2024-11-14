@@ -3,9 +3,13 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Src\Services\MenuFactory;
 use Src\Controllers\MainController;
+use Src\Models\Caratula;
 
 $modes = ["acords random", "acords de la col·lecció", "acords específics", "canviar configuracio"];
-$menu = new MenuFactory($modes, "Acords CLI");
+$basePath = str_replace("index.php", "", __FILE__);
+$caratula = new Caratula($basePath);
+$title = $caratula->init();
+$menu = new MenuFactory($modes, $title);
 $mode = $menu->init();
 $controller = new MainController();
 
