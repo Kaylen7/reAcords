@@ -5,7 +5,7 @@ use Src\Services\MenuFactory;
 use Src\Controllers\MainController;
 use Src\Models\Caratula;
 
-$modes = ["acords random", "acords de la col·lecció", "acords específics", "canviar configuracio"];
+$modes = ["Acords random", "Acords de la col·lecció", "Acords específics", "Canviar configuracio"];
 $basePath = str_replace("index.php", "", __FILE__);
 $caratula = new Caratula($basePath);
 $title = $caratula->init();
