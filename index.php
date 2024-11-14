@@ -5,7 +5,7 @@ use Src\Services\MenuFactory;
 use Src\Controllers\MainController;
 
 $modes = ["acords random", "acords de la col·lecció", "acords específics", "canviar configuracio"];
-$menu = new MenuFactory($modes);
+$menu = new MenuFactory($modes, "Acords CLI");
 $mode = $menu->init();
 $controller = new MainController();
 
@@ -24,7 +24,7 @@ switch(array_search($mode, $modes)){
         $controller->getAcordsEspecifics($input);
         break;
     case 3:
-        echo "working on it";
+        $controller->getConfiguration();
         break;
 }
 
