@@ -5,6 +5,7 @@ namespace Src\Controllers;
 use Src\Services\AcordsFactory;
 use Src\Services\CatalogueService; 
 use Src\Services\ConfigurationService;
+use Src\Views\MainView;
 
 class MainController{
 
@@ -21,9 +22,9 @@ class MainController{
             $controller = new AcordsFactory($arrAcords, $random);
             $controller->init();
         } else{
-            echo "Afegeix només acords amb una nomenclatura vàlida.";
+            $view = new MainView();
+            $view->showErrorMessage("❌ Nomenclatura invàlida");
         }
-        
     }
 
     public function getAcordsColeccio(){
