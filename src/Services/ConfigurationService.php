@@ -26,9 +26,6 @@ class ConfigurationService{
             case 0:
                 if($opcio === ""){
                     break;
-                }elseif($opcio === "w"){
-                    system("php index.php");
-                    break;
                 }
                 $this->controller->changeCompas();
                 $this->backToInit(2);

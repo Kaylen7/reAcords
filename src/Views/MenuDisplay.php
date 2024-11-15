@@ -6,7 +6,7 @@ use Src\Enums\ErrorMessages;
 
 class MenuDisplay extends ConsoleOutput{
     private const MISSATGE = "\nTria una opció\n\n";
-    private const INSTRUCCIONS = "\nMou-te amb les fletxes, selecciona amb espai, acepta amb enter, fes servir 'w' per anar enrrere i 'q' per sortir.\n";
+    private const INSTRUCCIONS = "\nMou-te amb les fletxes, selecciona amb espai, acepta amb enter i fes servir 'q' per sortir.\n";
 
     public function __construct(
         private string $title

@@ -26,9 +26,6 @@ class CatalogueService {
             case 0:
                 if($opcio === ""){
                     break;
-                } elseif($opcio === "w"){
-                    system("php index.php");
-                    break;
                 }
                 $this->controller->getPagerPerSeccions();
                 break;
