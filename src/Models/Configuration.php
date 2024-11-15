@@ -60,16 +60,6 @@ class Configuration{
         }
     }
 
-    public function setRandom(bool $random){
-        $this->configuration["random"] = $random;
-        $this->update();
-    }
-
-    public function setAcords(array $acords){
-        $this->configuration["acords"] = $acords;
-        $this->update();
-    }
-
     private function update(){
         $file = @file_put_contents('./config.json', json_encode($this->configuration, JSON_PRETTY_PRINT));
         if(!$file){
