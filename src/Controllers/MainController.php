@@ -5,7 +5,7 @@ namespace Src\Controllers;
 use Src\Services\AcordsFactory;
 use Src\Services\CatalogueService; 
 use Src\Services\ConfigurationService;
-use Src\Views\MainView;
+use Src\Views\MainDisplay;
 
 class MainController{
 
@@ -22,7 +22,7 @@ class MainController{
             $controller = new AcordsFactory($arrAcords, $random);
             $controller->init();
         } else{
-            $view = new MainView();
+            $view = new MainDisplay();
             $view->showErrorMessage("❌ Nomenclatura invàlida");
         }
     }
