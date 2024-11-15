@@ -3,3 +3,4 @@ log.txt
 /test/
 test.php
 .DS_Store
+config.json
