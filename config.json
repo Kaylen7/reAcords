@@ -1,11 +1,5 @@
 {
-    "compas": "6\/8",
-    "tempo": "ADAGIO",
-    "minuts-estudi": 1,
-    "random": false,
-    "acords": [
-        "A",
-        "B",
-        "C"
-    ]
+    "compas": "4\/4",
+    "tempo": "ALLEGRO",
+    "minuts-estudi": 1
 }

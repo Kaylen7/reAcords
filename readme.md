@@ -60,6 +60,7 @@ ConfigurationService
 ## 👷‍♀️ TO-DO
 - [ ] Botó repetir final loop acords // Funciones goBack entre servicios. 
 - [ ] Refactoritzar codi, evaluar acoplament de dependències.
+- [ ] Subdividir compassos 12/8, 6/8, etc
 - [ ] Address glitch in menu rendering
 - [ ] Canviar acords Random per sèrie del catàleg random
 - [ ] Compatibilitat multiplataforma
