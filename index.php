@@ -7,7 +7,7 @@ use Src\Controllers\MainController;
 
 $caratula = new Caratula(__DIR__);
 $title = $caratula->init();
-$modes = ["Acords random", "Acords de la col·lecció", "Acords específics", "Canviar configuracio"];
+$modes = ["1. Acords random", "2. Acords específics", "3. Triar del catàleg", "4. Canviar configuració"];
 $menu = new MenuFactory($modes, $title);
 $mode = $menu->init();
 $controller = new MainController();
@@ -20,11 +20,11 @@ switch(array_search($mode, $modes)){
         $controller->getAcordsRandom();
         break;
     case 1:
-        $controller->getAcordsColeccio();
-        break;
-    case 2:
         $input = readline("Sèrie d'acords separats per comes:\n");
         $controller->getAcordsEspecifics($input);
+        break;
+    case 2:
+        $controller->getAcordsColeccio();
         break;
     case 3:
         $controller->getConfiguration();

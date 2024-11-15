@@ -9,7 +9,7 @@ use Src\Views\CatalogueDisplay;
 
 class CatalogueService {
 
-    private const OPCIONS = ["assajar secció", "buscar per artista-cançó"]; 
+    private const OPCIONS = ["Veure per seccions", "Veure per artista-cançó"]; 
     private CatalogueController $controller;
 
     public function __construct(
