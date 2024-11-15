@@ -15,6 +15,6 @@ class AcordsDisplay extends ConsoleOutput {
     public function displayAcord(string $acord): void{
         $this->clearScreen();
 
-        self::showMessage($acord, self::GREEN);
+        self::showMessage($acord, self::COLORS['green']);
     }
 }

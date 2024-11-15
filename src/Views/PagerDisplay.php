@@ -19,7 +19,7 @@ class PagerDisplay extends ConsoleOutput {
         $this->clearConsole();
 
         $this->header = self::HEADER . ($pagActual + 1) . PHP_EOL;
-        $this->showMessage($this->header, self::BLUE);
+        $this->showMessage($this->header, self::COLORS['blue']);
 
         if ($isCollection){
             $this->subheader = self::SUBHEADER . ($collectionKeys[$indexSerie] . PHP_EOL . PHP_EOL);
@@ -28,14 +28,14 @@ class PagerDisplay extends ConsoleOutput {
             $this->subheader = "" . PHP_EOL;
             $this->instruccions = self::INSTRUCCIONS_PAGINA . self::INSTRUCCIONS_SORTIDA . "Tría l'índex i fes clic a 'enter' per assajar els acords relacionats amb la cançó escollida.";
         }
-        $this->showMessage($this->subheader, self::BLUE);
+        $this->showMessage($this->subheader, self::COLORS['blue']);
 
        
         $data = $isCollection ? $this->extractDataCollection($pages, $pagActual) : $this->parseDataIndex($pages);
 
         $this->prettyPrint($data);
 
-        $this->showMessage($this->instruccions, self::BLUE);
+        $this->showMessage($this->instruccions, self::COLORS['blue']);
         
     }
 
@@ -97,7 +97,7 @@ class PagerDisplay extends ConsoleOutput {
                     $data = (gettype($content) === "string" ? $content : implode(", ", $content));
                     $text = $data . PHP_EOL;
                 }
-            $this->showMessage($header, self::BOLD);
+            $this->showMessage($header, self::COLORS['bold']);
             $this->showMessage($text . PHP_EOL);
             }
         }
