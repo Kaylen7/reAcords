@@ -1,14 +1,13 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
+use Src\Models\Caratula;
 use Src\Services\MenuFactory;
 use Src\Controllers\MainController;
-use Src\Models\Caratula;
 
-$modes = ["Acords random", "Acords de la col·lecció", "Acords específics", "Canviar configuracio"];
-$basePath = str_replace("index.php", "", __FILE__);
-$caratula = new Caratula($basePath);
+$caratula = new Caratula(__DIR__);
 $title = $caratula->init();
+$modes = ["Acords random", "Acords de la col·lecció", "Acords específics", "Canviar configuracio"];
 $menu = new MenuFactory($modes, $title);
 $mode = $menu->init();
 $controller = new MainController();
@@ -16,9 +15,6 @@ $controller = new MainController();
 switch(array_search($mode, $modes)){
     case 0:
         if($mode === ''){
-            break;
-        }elseif($mode === 'w'){
-            system("php index.php");
             break;
         }
         $controller->getAcordsRandom();
@@ -34,5 +30,3 @@ switch(array_search($mode, $modes)){
         $controller->getConfiguration();
         break;
 }
-
-?>

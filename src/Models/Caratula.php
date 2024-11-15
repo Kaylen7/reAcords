@@ -9,7 +9,7 @@ class Caratula {
     ){}
 
     public function init(): string{
-        $caratulaPath = $this->basePath . "public/caratula.txt";       
+        $caratulaPath = $this->basePath . "/public/caratula.txt";       
         $caratula = file_get_contents($caratulaPath);
         if(!$caratula){
             return "Missing caràtula 🤦‍♀️";
