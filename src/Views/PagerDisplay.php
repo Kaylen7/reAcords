@@ -23,10 +23,10 @@ class PagerDisplay extends ConsoleOutput {
 
         if ($isCollection){
             $this->subheader = self::SUBHEADER . ($collectionKeys[$indexSerie] . PHP_EOL . PHP_EOL);
-            $this->instruccions = self::INSTRUCCIONS_PAGINA . self::INSTRUCCIONS_SERIE . self::INSTRUCCIONS_SORTIDA . "Fes clic a 'enter' per triar la pàgina d'estudi." . PHP_EOL;
+            $this->instruccions = self::INSTRUCCIONS_PAGINA . self::INSTRUCCIONS_SERIE . self::INSTRUCCIONS_SORTIDA . "Fes clic a" . (PHP_OS_FAMILY !== 'Windows' ? "'enter'" : 'e') . "per triar la pàgina d'estudi." . PHP_EOL;
         } else {
             $this->subheader = "" . PHP_EOL;
-            $this->instruccions = self::INSTRUCCIONS_PAGINA . self::INSTRUCCIONS_SORTIDA . "Tría l'índex i fes clic a 'enter' per assajar els acords relacionats amb la cançó escollida.";
+            $this->instruccions = self::INSTRUCCIONS_PAGINA . self::INSTRUCCIONS_SORTIDA . "Tría l'índex" . (PHP_OS_FAMILY === 'Windows' ? ' introdueix número i fes clic a Enter. Després ': ' i ') . "fes clic a " . (PHP_OS_FAMILY !== 'Windows' ? "'enter'" : 'e') . " per assajar els acords relacionats amb la cançó escollida.";
         }
         $this->showMessage($this->subheader, self::COLORS['blue']);
 

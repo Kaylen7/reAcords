@@ -6,11 +6,17 @@ use Src\Enums\ErrorMessages;
 
 class MenuDisplay extends ConsoleOutput{
     private const MISSATGE = "\nTria una opció\n\n";
-    private const INSTRUCCIONS = "\nMou-te amb les fletxes, selecciona amb espai, acepta amb enter i fes servir 'q' per sortir.\n";
+    private string $instructions;
 
     public function __construct(
         private string $title
-    ){}
+    ){
+        if (PHP_OS_FAMILY !== 'Windows'){
+            $this->instructions = "\nMou-te amb les fletxes, selecciona amb espai, acepta amb enter i fes servir 'q' per sortir.\n";
+        } else {
+            $this->instructions = "\nMou-te amb 'w': amunt, 's': avall, 'x': selecciona, 'e': accepta i 'q' per sortir. En tots els casos hauràs de fer servir Enter per validar l'entrada.\n";
+        }
+    }
 
     public function display(array $options, array $chosen, int $selected): void{
         $this->clearConsole();
@@ -22,7 +28,7 @@ class MenuDisplay extends ConsoleOutput{
 
             self::showMessage("$highlight [$checked] $option\n");
         }
-        self::showMessage(self::INSTRUCCIONS, self::COLORS['blue']);
+        self::showMessage($this->instructions, self::COLORS['blue']);
     }
 
     public function showTitle(){

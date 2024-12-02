@@ -34,6 +34,7 @@ class PagerController{
         $key = fgetc(STDIN);
         
         if($key === 'c'){
+            echo "here";
             if(($pagActual + 1) * $itemsPerPag < $this->limits){
                 $this->model->nextPage();
             }
@@ -60,9 +61,16 @@ class PagerController{
                 $this->model->previousSerie();
                 $this->display->clearDisplay();
             }
-        } elseif(ord($key) >= 49 && ord($key) < 54){
+        } elseif(ord($key) >= 49 && ord($key) < 54){ //index
             $this->option = $key + ($pagActual * $itemsPerPag);
         } elseif(ord($key) === 10){
+            if($isCollection){
+                $this->chosen = [$page, $pagActual];
+            } else {
+                $this->chosen = [$page, $this->option];
+            }
+            break;
+        } elseif($key === 'e' && PHP_OS_FAMILY === 'Windows'){
             if($isCollection){
                 $this->chosen = [$page, $pagActual];
             } else {
