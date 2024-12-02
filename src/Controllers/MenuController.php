@@ -14,47 +14,90 @@ class MenuController {
     ){}
 
     public function run(): string{
-        system("stty -icanon -echo");
+        if (PHP_OS_FAMILY !== 'Windows'){
+            system("stty -icanon -echo");
+        }
+        
         $this->display->showTitle();
         while (true) {
             $params = $this->model->getParams();
             $this->display->display($params["options"], $params["chosen"], $params["selected"]);
-            
-            $key = ord(fgetc(STDIN));
-            if ($key === 27 && ord(fgetc(STDIN)) === 91) { //ESC [
-                $arrowKey = ord(fgetc(STDIN));
-                if ($arrowKey === 65) { // Up arrow
+
+            if(PHP_OS_FAMILY === 'Windows'){
+                $key = $this->getWindowsInput();
+            } else {
+                echo "linux";
+            }
+
+            switch($key){
+                case 'down':
                     $selected = ($params["selected"] > 0) ? $params["selected"] - 1 : count($params["options"]) - 1;
                     $this->model->setSelected($selected);
-                } elseif ($arrowKey === 66) { // Down arrow
+                    break;
+                case 'up':
                     $selected = ($params["selected"] + 1) % count($params["options"]);
                     $this->model->setSelected($selected);
-                }
-            } elseif ($key === 32) { // Space bar
-                if (in_array($params["selected"], $params["chosen"])) {
-                    $chosen = array_diff($params["chosen"], [$params["selected"]]);
-                    $this->model->setChosen($chosen);
-                } else {
-                    $chosen[] = ($params["selected"]);
-                    $this->model->setChosen($chosen);
-                }
-            } elseif($key === 10){ // Enter
-                if(count($params["chosen"]) > 1){
-                    $this->display->showError(ErrorMessages::ERR_EN_TRIA_MOLTES);
                     break;
-                } elseif(count($params["chosen"]) === 0){
-                    $this->display->showError(ErrorMessages::ERR_NO_TRIA_CAP);
+                case 'space':
+                    $chosen = $params["chosen"];
+                    if(in_array($params["selected"], $chosen)){
+                        $chosen = array_diff($chosen, [$params["selected"]]);
+                    } else {
+                        $chosen[] = $params["selected"];
+                    }
+                    $this->model->setChosen($chosen);
                     break;
-                }else{
-                    return $params["options"][$params["chosen"][0]];
-                }
-            } elseif ($key === 113) { // 'q' to quit
-                $this->display->leave();
-                break;
+                case 'enter':
+                    if(count($params["chosen"]) > 1){
+                        $this->display->showError(ErrorMessages::ERR_EN_TRIA_MOLTES);
+                        return "";
+                    } elseif(count($params["chosen"]) === 0){
+                        $this->display->showError(ErrorMessages::ERR_NO_TRIA_CAP);
+                        return "";
+                    } else {
+                        return $params["options"][$params["chosen"][0]];
+                    }
+                case 'quit':
+                    $this->display->leave();
+                    return "";
             }
         }
-        system("stty sane");
+        if (PHP_OS_FAMILY !== 'Windows'){
+            system("stty sane");
+        }
         return "";
     }
-    
+
+    public function getUnixInput(): ?string {
+        $key = ord(fgetc(STDIN));
+
+        if($key === 27 && ord(fgetc(STDIN)) === 91){ //ESC [
+            $arrowKey = ord(fgetc(STDIN));
+            return match($arrowKey){
+                65 => 'up',
+                66 => 'down',
+                default => null
+            };
+        }
+
+        return match($key){
+            32 => 'space',
+            10 => 'enter',
+            113 => 'quit',
+            default => null
+        };
+    }
+
+    public function getWindowsInput(): ?string{
+        $input = trim(fgets(STDIN));
+
+        return match($input){
+            's' => 'up',
+            'w' => 'down',
+            'x' => 'space',
+            'e' => 'enter',
+            'q' => 'quit',
+            default => null
+        };
+    }
 }
