@@ -4,7 +4,7 @@ namespace Src\Views;
 
 class ConsoleOutput{
     protected const CLEAR_TERMINAL = "\033[2J\033[;H";
-    protected string $cmd = PHP_OS === 'Windows' ? 'cls' : 'clear';
+    protected string $cmd = PHP_OS_FAMILY === 'Windows' ? 'cls' : 'clear';
     protected const COLORS = [
         "green" => "\033[32m",
         "red" => "\033[31m",
