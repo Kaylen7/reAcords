@@ -61,9 +61,9 @@ class PagerController{
                 $this->model->previousSerie();
                 $this->display->clearDisplay();
             }
-        } elseif(ord($key) >= 49 && ord($key) < 54){
+        } elseif(ord($key) >= 49 && ord($key) < 54){ //index
             $this->option = $key + ($pagActual * $itemsPerPag);
-        } elseif(ord($key) === 10 && PHP_OS_FAMILY ==! 'Windows'){
+        } elseif(ord($key) === 10){
             if($isCollection){
                 $this->chosen = [$page, $pagActual];
             } else {

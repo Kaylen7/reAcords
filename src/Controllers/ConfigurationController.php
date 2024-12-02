@@ -23,6 +23,9 @@ class ConfigurationController {
     }
 
     public function showConfiguration(): void{
+        $this->model = Configuration::getInstance();
+        $this->display = new ConfigurationDisplay();
+        $this->data = $this->model->getConfig();
         $this->display->displayConfig($this->data);
     }
 

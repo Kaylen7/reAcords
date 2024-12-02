@@ -26,7 +26,7 @@ class MenuController {
             if(PHP_OS_FAMILY === 'Windows'){
                 $key = $this->getWindowsInput();
             } else {
-                echo "linux";
+                $key = $this->getUnixInput();
             }
 
             switch($key){
@@ -74,8 +74,8 @@ class MenuController {
         if($key === 27 && ord(fgetc(STDIN)) === 91){ //ESC [
             $arrowKey = ord(fgetc(STDIN));
             return match($arrowKey){
-                65 => 'up',
-                66 => 'down',
+                65 => 'down',
+                66 => 'up',
                 default => null
             };
         }
